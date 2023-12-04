@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package sptv22task5kristiinaparri;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -12,49 +14,19 @@ import java.util.Random;
  * @author admin
  */
 public class SPTV22Task5KristiinaParri {
-    
-    static int rowWiseSorting(int arr[][]) {
-    for (int i = 0; i < arr.length; i++) {
-              Arrays.sort(arr[i]);
-        }
-    for (int i = 0; i < arr.length; i++) {
-         for (int j = 0; j < arr[i].length; j++) {
-           System.out.print(arr[i][j] + " ");
-         }
-         System.out.println();
-       }
-        return 0;
-    }
-    
-    
-    public static void sort2dArray(int arr[][]) {
-   int n1 = 3;
-   int n2 = 5;
-   int n3 = 7;
-   int n4 = 8;
-   int n5 = 9;
-   for (int i = 0; i < n1; i++) {
-      for (int j = 0; j < n2; j++) {
-         for (int k = 0; k < n3; k++) {
-            for (int l = 0; l < n4; l++) {
-                for (int m = 0; m < n5; m++) {
-                    if (arr[l][m] <= arr[i][j]) {
-                        // swap
-                        int temp = arr[i][j];
-                        arr[i][j] = arr[l][m];
-                        arr[l][m] = temp;
-                    } else {
-                    }
-            }
-         }
-      }
-      }
-   }
-    }
 
     /**
      * @param args the command line arguments
      */
+    public static List<Integer> oneDArray(int[][] array) {
+        List<Integer> oneDimensionalArray = new ArrayList<>();
+        for (int row = 0; row < array.length; row++) {
+            for (int col = 0; col < array[row].length; col++)
+                oneDimensionalArray.add(array[row][col]);
+        }
+        return oneDimensionalArray;
+    }
+    
     
     
     public static void main(String[] args) {
@@ -85,13 +57,43 @@ public class SPTV22Task5KristiinaParri {
         
 
         System.out.println("Отсортированный массив");
+        
+        for (int row = 0; row < arr.length * arr[0].length - 1; ++row) {
+            for (int column = row + 1; column < arr.length * arr[0].length; ++column) {
+                if (arr[column / arr[0].length][column % arr[0].length] < arr[row / arr[0].length][row % arr[0].length] ) {
+                    int tmp = arr[column / arr[0].length][column % arr[0].length];
+                    arr[column / arr[0].length][column % arr[0].length] = arr[row / arr[0].length][row % arr[0].length];
+                    arr[row / arr[0].length][row % arr[0].length] = tmp;
+                }
+            }
+        }
+        
+        
+        
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++)
+                System.out.print(arr[i][j] + " ");
+            System.out.println();
+            
+            
+            
+        
+}
 
         
-        rowWiseSorting(arr);
-        ///sort2dArray(arr);
+        
+}
+        
 
 }
-    }
+    
+    
+    
+
+
+
+
+
 
 
 
